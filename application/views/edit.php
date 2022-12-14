@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>codeigniter Tutorial</title>
+    <title>School Result Operating Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 

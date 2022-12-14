@@ -1,10 +1,12 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Register_model extends CI_Model {
+class Register_model extends CI_Model
+{
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->load->database('default');
         $this->load->library('session');
 
@@ -12,14 +14,32 @@ class Register_model extends CI_Model {
         parent::__construct();
     }
 
-    public function get_all_register_detail() {
+    public function get_all_register_detail()
+    {
         $this->db->select('*');
         $this->db->from('register');
         $objQuery = $this->db->get();
         return $objQuery->result_array();
     }
 
-    public function get_id_wise_register_detail($id) {
+    public function get_all_sub_detail()
+    {
+        $this->db->select('*');
+        $this->db->from('subjects');
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function get_all_academy_detail()
+    {
+        $this->db->select('*');
+        $this->db->from('academy_info');
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function get_id_wise_register_detail($id)
+    {
         $this->db->select('*');
         $this->db->from('register');
         $this->db->where('id', $id);
@@ -27,7 +47,26 @@ class Register_model extends CI_Model {
         return $objQuery->result_array();
     }
 
-    public function insert($arrData) {
+    public function get_scode_wise_sub_detail($id)
+    {
+        $this->db->select('*');
+        $this->db->from('subjects');
+        $this->db->where('scode', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function get_acode_wise_acamdey_detail($id)
+    {
+        $this->db->select('*');
+        $this->db->from('academy_info');
+        $this->db->where('acode', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function insert($arrData)
+    {
         if ($this->db->insert('register', $arrData)) {
             return true;
         } else {
@@ -35,7 +74,27 @@ class Register_model extends CI_Model {
         }
     }
 
-    public function update($editData, $id) {
+    public function insertsub($arrData)
+    {
+        if ($this->db->insert('subjects', $arrData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function insertaca($arrData)
+    {
+        if ($this->db->insert('academy_info', $arrData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function update($editData, $id)
+    {
         $this->db->where('id', $id);
 
         if ($this->db->update('register', $editData)) {
@@ -45,7 +104,30 @@ class Register_model extends CI_Model {
         }
     }
 
-    function delete($id) {
+    public function updatesub($editData, $id)
+    {
+        $this->db->where('scode', $id);
+
+        if ($this->db->update('subjects', $editData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function updateaca($editData, $id)
+    {
+        $this->db->where('acode', $id);
+
+        if ($this->db->update('academy_info', $editData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function delete($id)
+    {
 
         if ($this->db->delete('register', array('id' => $id))) {
             return true;
@@ -54,6 +136,23 @@ class Register_model extends CI_Model {
         }
     }
 
-}
+    function deletesub($id)
+    {
 
-?>
+        if ($this->db->delete('subjects', array('scode' => $id))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteaca($id)
+    {
+
+        if ($this->db->delete('academy_info', array('acode' => $id))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
