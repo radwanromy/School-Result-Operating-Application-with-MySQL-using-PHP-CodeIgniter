@@ -23,12 +23,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/PHP%20CI/bcit-ci-CodeIgniter-bcb17eb/';
+$config['base_url'] = 'http://localhost/bcit-ci-CodeIgniter-bcb17eb/';
 
 /*
 |--------------------------------------------------------------------------
 | Index File
-|--------------------------------------------------------------------------
+|------------------------
+--------------------------------------------------
 |
 | Typically this will be your index.php file, unless you've renamed it to
 | something else. If you are using mod_rewrite to remove the page set this

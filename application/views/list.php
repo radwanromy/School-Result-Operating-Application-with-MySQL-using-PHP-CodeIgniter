@@ -15,7 +15,7 @@
                 <h2>List of Registered users</h2>
                 <table class="table">
                     <tr>
-                        <td colspan="5" align="right"><a href="<?php echo base_url(); ?>register/add">Add</a></td>
+                        <td colspan="5" align="right"><a href="<?php echo site_url('register/add'); ?>">Add</a></td>
                     </tr>
                     <tr>
                         <td>First Name</td>
@@ -32,7 +32,9 @@
                             <td><?php echo $rg['last_name']; ?></td>
                             <td><?php echo $rg['email']; ?></td>
                             <td><?php echo $rg['mobile']; ?></td>
-                            <td><a href="<?php echo base_url(); ?>register/edit/<?php echo $rg['id']; ?>">Edit</a> <a href="<?php echo base_url(); ?>register/delete/<?php echo $rg['id']; ?>">Delete</a></td>
+                            <td><a href="<?php echo site_url('register/edit/'); ?><?php echo $rg['id']; ?>">Edit</a>
+                                <a href="<?php echo site_url('register/delete/'); ?><?php echo $rg['id']; ?>">Delete</a>
+                            </td>
                         </tr>
                     <?php
                     }
