@@ -40,7 +40,7 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="submit" value="Edit Subject Information" name="btnAcaEdit" class="btn btn-primary btn-lg">
+                        <input type="submit" value="Edit Academic Information" name="btnAcaEdit" class="btn btn-primary btn-lg">
                     </div>
 
                 </form>

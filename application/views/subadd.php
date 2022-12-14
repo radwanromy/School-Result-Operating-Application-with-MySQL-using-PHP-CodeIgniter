@@ -11,7 +11,7 @@
             <div class="col-md-3"></div>
             <div class="col-md-6">
                 <form method="post" name="frmSubAdd" action="">
-                    <h3>Add User</h3>
+                    <h3>Add Subject</h3>
 
                     <!-- <div class="form-group">
                         <label for="">Subject Code</label>

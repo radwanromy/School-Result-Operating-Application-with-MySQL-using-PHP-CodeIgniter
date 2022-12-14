@@ -72,7 +72,7 @@ class Register extends CI_Controller
                 redirect('register');
             }
         }
-        $this->load->view('academyadd');
+        $this->load->view('acaadd');
     }
 
 
@@ -132,7 +132,7 @@ class Register extends CI_Controller
                 redirect('register');
             }
         }
-        $this->load->view('academyedit', $arrData);
+        $this->load->view('acaedit', $arrData);
     }
 
     public function delete($id)
