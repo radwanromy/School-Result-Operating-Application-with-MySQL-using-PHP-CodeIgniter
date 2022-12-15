@@ -1,3 +1,7 @@
+<h1>School Result Operating Application with MySQL using PHP-CodeIgniter</h1>
+
+![ci4 prepirt](https://user-images.githubusercontent.com/50805604/207829628-70d0965c-ec35-4ad7-a504-71722840ad0a.png)
+
 ###################
 What is CodeIgniter
 ###################
