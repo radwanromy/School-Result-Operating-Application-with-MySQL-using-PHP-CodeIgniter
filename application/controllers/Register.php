@@ -17,8 +17,41 @@ class Register extends CI_Controller
         $arrData['register_detail'] = $this->register_model->get_all_register_detail();
         $arrData['sub_detail'] = $this->register_model->get_all_sub_detail();
         $arrData['aca_detail'] = $this->register_model->get_all_academy_detail();
+        // $exconData['register_details'] = $this->register_model->get_all_register_detail();
+        // $exconData['sub_details'] = $this->register_model->get_all_sub_detail();
+        // $exconData['aca_details'] = $this->register_model->get_all_academy_detail();
         $this->load->view('list', $arrData);
+        // $this->load->view('exconadd', $exconData);
     }
+
+
+
+    // public function exconadd()
+    // {
+    //     if ($this->input->post('btnaddexcon')) {
+    //         $exconData['ayear'] = $this->input->post('txtayear');
+    //         $exconData['aclass'] = $this->input->post('txtaclass');
+    //         $exconData['asection'] = $this->input->post('txtasection');
+    //         $exconData['aexam'] = $this->input->post('txtaexam');
+    //         $exconData['agroup'] = $this->input->post('txtagroup');
+    //         $exconData['sname'] = $this->input->post('txtSname');
+    //         $exconData['subjective'] = $this->input->post('txtSubjective');
+    //         $exconData['subjective_pass'] = $this->input->post('txtSubjectivePass');
+    //         $exconData['objective'] = $this->input->post('txtObjective');
+    //         $exconData['objective_pass'] = $this->input->post('txtObjectivePass');
+    //         $exconData['practical'] = $this->input->post('txtPractical');
+    //         $exconData['practical_pass'] = $this->input->post('txtPracticalPass');
+    //         $exconData['exmark'] = $this->input->post('txtexmark');
+    //         $exconData['atten'] = $this->input->post('txtatten');
+    //         $exconData['status'] = $this->input->post('txtstatus');
+
+    //         $insert = $this->register_model->insertexcon($exconData);
+    //         if ($insert) {
+    //             redirect('register');
+    //         }
+    //     }
+    //     $this->load->view('exconadd');
+    // }
 
     public function add()
     {
@@ -158,4 +191,9 @@ class Register extends CI_Controller
             redirect('register');
         }
     }
+    // public function get_ayear_dropdownlist()
+    // {
+    //     $data['academy_info'] = $this->register_model->get_ayear_dropdownlist();
+    //     $this->load->view('list', $data);
+    // }
 }

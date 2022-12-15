@@ -65,6 +65,15 @@ class Register_model extends CI_Model
         return $objQuery->result_array();
     }
 
+    // public function insertexcon($exconData)
+    // {
+    //     if ($this->db->insert('excon', $exconData)) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
     public function insert($arrData)
     {
         if ($this->db->insert('register', $arrData)) {
@@ -155,4 +164,13 @@ class Register_model extends CI_Model
             return false;
         }
     }
+
+    // function get_ayear_dropdownlist()
+    // {
+    //     $results = $this->db->select('ayear');
+    //     $results = $this->db->from('academy_info');
+    //     $results = $this->db->result_array();
+
+    //     return array_column($results, 'ayear');
+    // }
 }
