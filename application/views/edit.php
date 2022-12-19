@@ -39,6 +39,7 @@
                         <input type="text" name="txtMobile" value="<?php echo $register_detail[0]['mobile']; ?>" class="form-control">
                     </div>
                     <div class="form-group">
+                    <a href="./../../" class="btn btn-primary btn-lg">Cancel</a>  &nbsp; &nbsp;
                         <input type="submit" value="Edit Now" name="btnEdit" class="btn btn-primary btn-lg">
                     </div>
 

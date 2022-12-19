@@ -47,7 +47,8 @@
 
 
                     <div class="form-group">
-                        <input type="submit" value="Add Academy Information" name="btnacaadd" class="btn btn-primary btn-lg">
+                    <a href="./../../" class="btn btn-primary btn-lg">Cancel</a>  &nbsp; &nbsp;
+                    <input type="submit" value="Add Academy Information" name="btnacaadd" class="btn btn-primary btn-lg">
                     </div>
 
                 </form>

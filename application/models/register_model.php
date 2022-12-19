@@ -38,6 +38,14 @@ class Register_model extends CI_Model
         return $objQuery->result_array();
     }
 
+    public function get_all_excon_detail()
+    {
+        $this->db->select('*');
+        $this->db->from('excon');
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
     public function get_id_wise_register_detail($id)
     {
         $this->db->select('*');
@@ -65,14 +73,23 @@ class Register_model extends CI_Model
         return $objQuery->result_array();
     }
 
-    // public function insertexcon($exconData)
-    // {
-    //     if ($this->db->insert('excon', $exconData)) {
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
+    public function get_exconid_wise_excon_detail($id)
+    {
+        $this->db->select('*');
+        $this->db->from('excon');
+        $this->db->where('exconid', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function insertexcon($exconData)
+    {
+        if ($this->db->insert('excon', $exconData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function insert($arrData)
     {
@@ -135,6 +152,18 @@ class Register_model extends CI_Model
         }
     }
 
+
+    public function updateexcon($editData, $id)
+    {
+        $this->db->where('exconid', $id);
+
+        if ($this->db->update('excon', $editData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function delete($id)
     {
 
@@ -159,6 +188,16 @@ class Register_model extends CI_Model
     {
 
         if ($this->db->delete('academy_info', array('acode' => $id))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteexcon($id)
+    {
+
+        if ($this->db->delete('excon', array('exconid' => $id))) {
             return true;
         } else {
             return false;

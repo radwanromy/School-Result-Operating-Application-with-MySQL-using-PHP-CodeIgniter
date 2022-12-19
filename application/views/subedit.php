@@ -50,6 +50,7 @@
                     </div>
 
                     <div class="form-group">
+                    <a href="./../../" class="btn btn-primary btn-lg">Cancel</a>  &nbsp; &nbsp;
                         <input type="submit" value="Edit Subject Information" name="btnSubEdit" class="btn btn-primary btn-lg">
                     </div>
 

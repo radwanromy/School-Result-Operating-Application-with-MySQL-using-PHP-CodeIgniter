@@ -8,217 +8,63 @@
 </head>
 
 <body>
-    
-<div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <form method="post" name="Examcon">
-                    <!-- <button colspan="5" align="center"><a href="<?php echo site_url('register/exconadd'); ?>">Exam Configuration</a></button> -->
-
-                    <div>
-                        <h3>Exam Configuration</h3>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                        <table>
-
-                            <tr>
-                                <td>
-                                    Academic Year :
-                                </td>
-                                <td>
-
-                                    <select name="ayear" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($aca_detail); $i++) { ?>
-
-                                            <option <?= $aca_detail[$i]['ayear'] ?> value=" <?= $aca_detail[$i]['ayear'] ?>" class="form-control" name="txtayear"><?= $aca_detail[$i]['ayear'] ?> </option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Class :
-                                </td>
-                                <td>
-                                    <select name="aclass" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($aca_detail); $i++) { ?>
-                                            <option <?= $aca_detail[$i]['aclass'] ?> value=" <?= $aca_detail[$i]['aclass'] ?>" class="form-control" name="txtaclass"><?= $aca_detail[$i]['aclass'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Section :
-                                </td>
-                                <td>
-                                    <select name="asection" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($aca_detail); $i++) { ?>
-                                            <option <?= $aca_detail[$i]['asection'] ?> value=" <?= $aca_detail[$i]['asection'] ?>" class="form-control" name="txtasection"><?= $aca_detail[$i]['asection'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Exam Type :
-                                </td>
-                                <td>
-                                    <select name="aexam" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($aca_detail); $i++) { ?>
-                                            <option <?= $aca_detail[$i]['aexam'] ?> value=" <?= $aca_detail[$i]['aexam'] ?>" class="form-control" name="txtaexam"><?= $aca_detail[$i]['aexam'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <!-- <input type="text" name="txtFname" value="<?php echo $aca_detail[0]['aexam']; ?>" class="form-control"> -->
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Class Group :
-                                </td>
-                                <td>
-                                    <select name="agroup" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($aca_detail); $i++) { ?>
-                                            <option <?= $aca_detail[$i]['agroup'] ?> value=" <?= $aca_detail[$i]['agroup'] ?>" class="form-control" name="txtagroup"><?= $aca_detail[$i]['agroup'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                    <!-- <input type="text" name="txtFname" value="<?php echo $aca_detail[0]['agroup']; ?>" class="form-control"> -->
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Course Name :
-                                </td>
-                                <td>
-                                    <select name="sname" size="1" style="width:100%; height:30px;  border-radius: 5px; ">
-                                        <option value="0" disabled>Please select an item</option>
-                                        <?php for ($i = 0; $i < count($sub_detail); $i++) { ?>
-                                            <option width="100%" <?= $sub_detail[$i]['sname'] ?> value=" <?= $sub_detail[$i]['sname'] ?>" class="form-control" name="txtsname"><?= $sub_detail[$i]['sname'] ?></option>
-                                        <?php } ?>
-                                    </select>
-                                </td>
-                            </tr>
-
-                        </table>
-                    </div>
-
-                    <div class="form-group">
-                        <table>
-                            <tr>
-                                <td rowspan="4">
-                                    Marks Configuration
-                                </td>
-                            </tr>
-                            <tr>
-
-                                <td>
-                                    Subjective
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['subjective']; ?>" class="form-control" name="txtSubjective">
-                                </td>
-                                <td>
-                                    Pass Marks
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['subjective_pass']; ?>" class="form-control" name="txtSubjectivePass">
-                                </td>
-
-
-                            </tr>
-                            <tr>
-                                <td>
-                                    Objective
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['objective']; ?>" class="form-control" name="txtObjective">
-                                </td>
-                                <td>
-                                    Pass Marks
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['objective_pass']; ?>" class="form-control" name="txtObjectivePass">
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Practical
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['practical']; ?>" class="form-control" name="txtPractical">
-                                </td>
-                                <td>
-                                    Pass Marks
-                                </td>
-                                <td>
-                                    <input type="text" value="<?php echo $sub_detail[0]['practical_pass']; ?>" class="form-control" name="txtPracticalPass">
-                                    <br>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Exam Marks:
-                                </td>
-                                <td>
-                                    <input value="100.00" class="form-control" name="txtexmark">
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Attendance:
-                                </td>
-                                <td>
-                                    <input type="checkbox" class="form-control" name="txtatten" checked>
-                            </tr>
-
-                            <tr>
-                                <td>
-                                    Status:
-                                </td>
-                                <td>
-                                    <input type="checkbox" class="form-control" name="txtstatus" checked>
-                            </tr>
-                        </table>
-                    </div>
-
-                    <div class="form-group">
-                        <table>
-                            <tr>
-                                <td>
-                                    <!-- <input type="button" value="Cancel" (click)=" this.form-control.reset();" class="btn btn-primary btn-lg"> -->
-                                </td>
-                                <td>
-                                    <input type="submit" value="Save" name="btnaddexcon" class="btn btn-primary btn-lg">
-                            </tr>
-                        </table>
-
-                    </div>
-                </div>
-
-                </form>
-                <div class="col-md-3"></div>
-            </div>
-        </div>
+    <div style="border: 2px solid gray;">
+        <h2>Exam Configuration Related Information</h2>
+        <table class="table">
+            <tr>
+                <td></td>
+                <td>
+                <td></td>
+                </td>
+                <!-- <td colspan="5" align="right"><a href="<?php echo site_url('register/add'); ?>">Add</a></td> -->
+                <td colspan="17" align="right"><a href="<?php echo site_url('register/exconadd'); ?>">New Exam Configuration</a></td>
+            </tr>
+            <tr>
+                <td>Academic Year</td>
+                <td>Class</td>
+                <td>Section</td>
+                <td>Exam Type</td>
+                <td>Class Group</td>
+                <td>Course Name</td>
+                <td>Subjective</td>
+                <td>Subjective Pass Mark</td>
+                <td>Objective</td>
+                <td>Objective Pass Mark</td>
+                <td>Practical</td>
+                <td>Practical Pass Mark</td>
+                <td>Exam Marks</td>
+                <td>Attendance</td>
+                <td>Status</td>
+                <td>Action</td>
+            </tr>
+            <?php
+            foreach ($excon_detail as $excon) {
+            ?>
+                <tr>
+                    <td><?php echo $excon['ayear']; ?></td>
+                    <td><?php echo $excon['aclass']; ?></td>
+                    <td><?php echo $excon['asection']; ?></td>
+                    <td><?php echo $excon['aexam']; ?></td>
+                    <td><?php echo $excon['agroup']; ?></td>
+                    <td><?php echo $excon['sname']; ?></td>
+                    <td><?php echo $excon['subjective']; ?></td>
+                    <td><?php echo $excon['subjective_pass']; ?></td>
+                    <td><?php echo $excon['objective']; ?></td>
+                    <td><?php echo $excon['objective_pass']; ?></td>
+                    <td><?php echo $excon['practical']; ?></td>
+                    <td><?php echo $excon['practical_pass']; ?></td>
+                    <td><?php echo $excon['exmark']; ?></td>
+                    <td><?php echo $excon['atten']; ?></td>
+                    <td><?php echo $excon['status']; ?></td>
+                    <td><a href="<?php echo site_url('register/exconedit/'); ?><?php echo $excon['exconid']; ?>">Edit</a>
+                        <a href="<?php echo site_url('register/deleteexcon/'); ?><?php echo $excon['exconid']; ?>">Delete</a>
+                    </td>
+                </tr>
+            <?php
+            }
+            ?>
+        </table>
     </div>
-    </table>
-
 
     <div class="container">
         <div class="row">
@@ -332,6 +178,8 @@
                     }
                     ?>
                 </table>
+
+
             </div>
             <div class="col-md-2"></div>
         </div>

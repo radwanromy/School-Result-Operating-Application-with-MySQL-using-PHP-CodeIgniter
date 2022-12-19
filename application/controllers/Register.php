@@ -17,41 +17,43 @@ class Register extends CI_Controller
         $arrData['register_detail'] = $this->register_model->get_all_register_detail();
         $arrData['sub_detail'] = $this->register_model->get_all_sub_detail();
         $arrData['aca_detail'] = $this->register_model->get_all_academy_detail();
-        // $exconData['register_details'] = $this->register_model->get_all_register_detail();
-        // $exconData['sub_details'] = $this->register_model->get_all_sub_detail();
-        // $exconData['aca_details'] = $this->register_model->get_all_academy_detail();
+        $arrData['excon_detail'] = $this->register_model->get_all_excon_detail();
+        //  $arrData['register_details'] = $this->register_model->get_all_register_detail();
+        //  $arrData['sub_details'] = $this->register_model->get_all_sub_detail();
+        //  $arrData['aca_details'] = $this->register_model->get_all_academy_detail();
         $this->load->view('list', $arrData);
-        // $this->load->view('exconadd', $exconData);
+        // $this->load->view('exconadd', $arrData);
+        // $this->load->view('exconadd',  $arrData);
     }
 
 
 
-    // public function exconadd()
-    // {
-    //     if ($this->input->post('btnaddexcon')) {
-    //         $exconData['ayear'] = $this->input->post('txtayear');
-    //         $exconData['aclass'] = $this->input->post('txtaclass');
-    //         $exconData['asection'] = $this->input->post('txtasection');
-    //         $exconData['aexam'] = $this->input->post('txtaexam');
-    //         $exconData['agroup'] = $this->input->post('txtagroup');
-    //         $exconData['sname'] = $this->input->post('txtSname');
-    //         $exconData['subjective'] = $this->input->post('txtSubjective');
-    //         $exconData['subjective_pass'] = $this->input->post('txtSubjectivePass');
-    //         $exconData['objective'] = $this->input->post('txtObjective');
-    //         $exconData['objective_pass'] = $this->input->post('txtObjectivePass');
-    //         $exconData['practical'] = $this->input->post('txtPractical');
-    //         $exconData['practical_pass'] = $this->input->post('txtPracticalPass');
-    //         $exconData['exmark'] = $this->input->post('txtexmark');
-    //         $exconData['atten'] = $this->input->post('txtatten');
-    //         $exconData['status'] = $this->input->post('txtstatus');
+    public function exconadd()
+    {
+        if ($this->input->post('btnaddexcon')) {
+            $arrData['ayear'] = $this->input->post('txtayear');
+            $arrData['aclass'] = $this->input->post('txtaclass');
+            $arrData['asection'] = $this->input->post('txtasection');
+            $arrData['aexam'] = $this->input->post('txtaexam');
+            $arrData['agroup'] = $this->input->post('txtagroup');
+            $arrData['sname'] = $this->input->post('txtSname');
+            $arrData['subjective'] = $this->input->post('txtSubjective');
+            $arrData['subjective_pass'] = $this->input->post('txtSubjectivePass');
+            $arrData['objective'] = $this->input->post('txtObjective');
+            $arrData['objective_pass'] = $this->input->post('txtObjectivePass');
+            $arrData['practical'] = $this->input->post('txtPractical');
+            $arrData['practical_pass'] = $this->input->post('txtPracticalPass');
+            $arrData['exmark'] = $this->input->post('txtexmark');
+            $arrData['atten'] = $this->input->post('txtatten');
+            $arrData['status'] = $this->input->post('txtstatus');
 
-    //         $insert = $this->register_model->insertexcon($exconData);
-    //         if ($insert) {
-    //             redirect('register');
-    //         }
-    //     }
-    //     $this->load->view('exconadd');
-    // }
+            $insert = $this->register_model->insertexcon($arrData);
+            if ($insert) {
+                redirect('register');
+            }
+        }
+        $this->load->view('exconadd');
+    }
 
     public function add()
     {
@@ -168,6 +170,35 @@ class Register extends CI_Controller
         $this->load->view('acaedit', $arrData);
     }
 
+    public function exconedit($id)
+    {
+        $arrData['excon_detail'] = $this->register_model->get_exconid_wise_excon_detail($id);
+
+        if ($this->input->post('btnExconEdit')) {
+            $editData['ayear'] = $this->input->post('txtayear');
+            $editData['aclass'] = $this->input->post('txtaclass');
+            $editData['asection'] = $this->input->post('txtasection');
+            $editData['aexam'] = $this->input->post('txtaexam');
+            $editData['agroup'] = $this->input->post('txtagroup');
+            $editData['sname'] = $this->input->post('txtSname');
+            $editData['subjective'] = $this->input->post('txtSubjective');
+            $editData['subjective_pass'] = $this->input->post('txtSubjectivePass');
+            $editData['objective'] = $this->input->post('txtObjective');
+            $editData['objective_pass'] = $this->input->post('txtObjectivePass');
+            $editData['practical'] = $this->input->post('txtPractical');
+            $editData['practical_pass'] = $this->input->post('txtPracticalPass');
+            $editData['exmark'] = $this->input->post('txtexmark');
+            $editData['atten'] = $this->input->post('txtatten');
+            $editData['status'] = $this->input->post('txtstatus');
+
+            $update = $this->register_model->updateexcon($editData, $id);
+            if ($update) {
+                redirect('register');
+            }
+        }
+        $this->load->view('exconedit', $arrData);
+    }
+
     public function delete($id)
     {
         $delete = $this->register_model->delete($id);
@@ -187,6 +218,14 @@ class Register extends CI_Controller
     public function deleteaca($id)
     {
         $delete = $this->register_model->deleteaca($id);
+        if ($delete) {
+            redirect('register');
+        }
+    }
+
+    public function deleteexcon($id)
+    {
+        $delete = $this->register_model->deleteexcon($id);
         if ($delete) {
             redirect('register');
         }
