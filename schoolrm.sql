@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2022 at 12:25 AM
+-- Generation Time: Dec 20, 2022 at 08:18 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -88,21 +88,52 @@ INSERT INTO `excon` (`exconid`, `ayear`, `aclass`, `asection`, `aexam`, `agroup`
 
 CREATE TABLE `register` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(64) NOT NULL,
-  `last_name` varchar(64) NOT NULL,
+  `studentid` int(11) NOT NULL,
+  `stdroll` int(11) NOT NULL,
   `address` text NOT NULL,
   `email` varchar(64) NOT NULL,
-  `mobile` varchar(12) NOT NULL
+  `mobile` varchar(12) NOT NULL,
+  `sname` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`id`, `first_name`, `last_name`, `address`, `email`, `mobile`) VALUES
-(15, 'Leo', 'Messi', 'Argentina', 'leo@afa.com', '+88952656'),
-(19, 'Naymer', 'Jr', 'Brazil', 'njr@bff.com', '+511687694'),
-(21, 'A s m', 'Radwan', 'Mirpur-1, Bangladesh', 'radwanromy@gmail.com', '01717799111');
+INSERT INTO `register` (`id`, `studentid`, `stdroll`, `address`, `email`, `mobile`, `sname`) VALUES
+(15, 22020001, 1241006, 'DHAKA', 'halim@gmail.com', '+88952656', 'HALIMUZZAMAN ALIF'),
+(19, 22020002, 1241005, 'Dhaka', 'ishtiaq@gmail.com', '+511687694', 'ISHTIAQ ELAHI KHAN');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `students`
+--
+
+CREATE TABLE `students` (
+  `stdsl` int(11) NOT NULL,
+  `stdid` int(11) NOT NULL,
+  `roll` int(11) NOT NULL,
+  `stdname` varchar(50) NOT NULL,
+  `tmark` int(11) DEFAULT NULL,
+  `stdclass` varchar(50) NOT NULL,
+  `stdsection` varchar(50) NOT NULL,
+  `stdgroup` varchar(50) NOT NULL,
+  `stdyear` varchar(50) NOT NULL,
+  `stdsub` varchar(50) NOT NULL,
+  `stdexam` varchar(50) NOT NULL,
+  `subjective` int(11) DEFAULT NULL,
+  `objective` int(11) DEFAULT NULL,
+  `practical` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `students`
+--
+
+INSERT INTO `students` (`stdsl`, `stdid`, `roll`, `stdname`, `tmark`, `stdclass`, `stdsection`, `stdgroup`, `stdyear`, `stdsub`, `stdexam`, `subjective`, `objective`, `practical`) VALUES
+(2, 22020001, 1241006, 'HALIMUZZAMAN ALIF', 80, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 1', 'Unit Test', 50, 30, 0),
+(3, 22020002, 1241005, 'ISHTIAQ ELAHI KHAN', 60, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 2', 'Half Yearly Exam', 40, 20, 0);
 
 -- --------------------------------------------------------
 
@@ -153,7 +184,15 @@ ALTER TABLE `excon`
 -- Indexes for table `register`
 --
 ALTER TABLE `register`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `studentid` (`studentid`);
+
+--
+-- Indexes for table `students`
+--
+ALTER TABLE `students`
+  ADD PRIMARY KEY (`stdsl`),
+  ADD UNIQUE KEY `stdid` (`stdid`);
 
 --
 -- Indexes for table `subjects`
@@ -182,6 +221,12 @@ ALTER TABLE `excon`
 --
 ALTER TABLE `register`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `students`
+--
+ALTER TABLE `students`
+  MODIFY `stdsl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subjects`
