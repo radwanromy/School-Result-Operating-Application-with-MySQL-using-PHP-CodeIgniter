@@ -16,18 +16,22 @@
                     <div>
                         <h3>Update User</h3>
                     </div>
+                   
+                    <div class="form-group">
+                        <label for="">Student ID</label>
+                        <input type="text" name="txtStudentid" value="<?php echo $register_detail[0]['studentid']; ?>" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Roll</label>
+                        <input type="text" name="txtRoll" value="<?php echo $register_detail[0]['stdroll']; ?>" class="form-control">
+                    </div>
 
                     <div class="form-group">
-                        <td>First Name</td>
-                        <label for="">First Name</label>
-                        <input type="text" name="txtFname" value="<?php echo $register_detail[0]['first_name']; ?>" class="form-control">
+                    <label for="">Student Name</label>
+                        <input type="text" name="txtsname" value="<?php echo $register_detail[0]['sname']; ?>" class="form-control">
                     </div>
                     <div class="form-group">
-                        <td>Last Name</td>
-                        <input type="text" name="txtLname" value="<?php echo $register_detail[0]['last_name']; ?>" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Last Name</label>
+                        <label for="">Address</label>
                         <textarea name="txtAddress" class="form-control"><?php echo $register_detail[0]['address']; ?></textarea>
                     </div>
                     <div class="form-group">

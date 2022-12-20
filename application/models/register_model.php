@@ -100,6 +100,15 @@ class Register_model extends CI_Model
         }
     }
 
+    public function insertstd($arrData)
+    {
+        if ($this->db->insert('students', $arrData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function insertsub($arrData)
     {
         if ($this->db->insert('subjects', $arrData)) {
@@ -198,6 +207,16 @@ class Register_model extends CI_Model
     {
 
         if ($this->db->delete('excon', array('exconid' => $id))) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deletestd($id)
+    {
+
+        if ($this->db->delete('students', array('stdsl' => $id))) {
             return true;
         } else {
             return false;

@@ -12,12 +12,14 @@
         <h2>Exam Configuration Related Information</h2>
         <table class="table">
             <tr>
+
+                <!-- <td colspan="5" align="right"><a href="<?php echo site_url('register/add'); ?>">Add</a></td> -->
+                <td colspan="0" align="right"><a href="<?php echo site_url('register/stdadd'); ?>">Result Submission</a></td>
                 <td></td>
                 <td>
                 <td></td>
                 </td>
-                <!-- <td colspan="5" align="right"><a href="<?php echo site_url('register/add'); ?>">Add</a></td> -->
-                <td colspan="17" align="right"><a href="<?php echo site_url('register/exconadd'); ?>">New Exam Configuration</a></td>
+                <td colspan="16" align="right"><a href="<?php echo site_url('register/exconadd'); ?>">New Exam Configuration</a> &nbsp; &nbsp;&nbsp; &nbsp;</td>
             </tr>
             <tr>
                 <td>Academic Year</td>
@@ -69,7 +71,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <!-- <div class="col-md-8"> -->
 
                 <h2>Subject Related Information</h2>
                 <table class="table">
@@ -154,8 +156,9 @@
                         <!-- <td colspan="5" align="right"><a href="<?php echo site_url('register/subadd'); ?>">Subject Add</a></td> -->
                     </tr>
                     <tr>
-                        <td>First Name</td>
-                        <td>Last Name</td>
+                        <td>Student ID</td>
+                        <td>Roll</td>
+                        <td>Student Name</td>
                         <td>Email</td>
                         <td>Address</td>
                         <td>Mobile</td>
@@ -165,8 +168,9 @@
                     foreach ($register_detail as $rg) {
                     ?>
                         <tr>
-                            <td><?php echo $rg['first_name']; ?></td>
-                            <td><?php echo $rg['last_name']; ?></td>
+                            <td><?php echo $rg['studentid']; ?></td>
+                            <td><?php echo $rg['stdroll']; ?></td>
+                            <td><?php echo $rg['sname']; ?></td>
                             <td><?php echo $rg['email']; ?></td>
                             <td><?php echo $rg['address']; ?></td>
                             <td><?php echo $rg['mobile']; ?></td>
@@ -180,7 +184,7 @@
                 </table>
 
 
-            </div>
+            <!-- </div> -->
             <div class="col-md-2"></div>
         </div>
     </div>

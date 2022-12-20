@@ -14,13 +14,18 @@
                     <h3>Add User</h3>
 
                     <div class="form-group">
-                        <label for="">First Name</label>
-                        <input type="text" class="form-control" name="txtFname">
+                        <label for="">Student ID</label>
+                        <input type="text" class="form-control" name="txtStudentid">
                     </div>
 
                     <div class="form-group">
-                        <label for="">Last Name</label>
-                        <input type="text" class="form-control" name="txtLname">
+                        <label for="">Roll</label>
+                        <input type="text" class="form-control" name="txtRoll">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">Student Name</label>
+                        <input type="text" class="form-control" name="txtSname">
                     </div>
 
                     <div class="form-group">

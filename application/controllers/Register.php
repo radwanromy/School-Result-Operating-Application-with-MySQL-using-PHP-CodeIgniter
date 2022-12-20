@@ -58,8 +58,9 @@ class Register extends CI_Controller
     public function add()
     {
         if ($this->input->post('btnadd')) {
-            $arrData['first_name'] = $this->input->post('txtFname');
-            $arrData['last_name'] = $this->input->post('txtLname');
+            $arrData['studnetid'] = $this->input->post('txtStudentid');
+            $arrData['stdroll'] = $this->input->post('txtRoll');
+            $arrData['sname'] = $this->input->post('txtSname');
             $arrData['address'] = $this->input->post('txtAddress');
             $arrData['email'] = $this->input->post('txtEmail');
             $arrData['mobile'] = $this->input->post('txtMobile');
@@ -70,6 +71,31 @@ class Register extends CI_Controller
             }
         }
         $this->load->view('add');
+    }
+
+    public function stdadd()
+    {
+        if ($this->input->post('btnstdadd')) {
+            $arrData['stdyear'] = $this->input->post('txtstdyear');
+            $arrData['stdsub'] = $this->input->post('txtstdsub');
+            $arrData['stdexam'] = $this->input->post('txtstdexam');
+            $arrData['stdid'] = $this->input->post('txtstdid');
+            $arrData['roll'] = $this->input->post('txtroll');
+            $arrData['stdname'] = $this->input->post('txtstdname');
+            $arrData['tmark'] = $this->input->post('txttmarks');
+            $arrData['stdclass'] = $this->input->post('txtstdclass');
+            $arrData['stdsection'] = $this->input->post('txtstdsection');
+            $arrData['stdgroup'] = $this->input->post('txtstdgroup');
+            $arrData['subjective'] = $this->input->post('txtsubjective');
+            $arrData['objective'] = $this->input->post('txtobjective');
+            $arrData['practical'] = $this->input->post('txtpractical');
+
+            $insert = $this->register_model->insertstd($arrData);
+            if ($insert) {
+                redirect('register');
+            }
+        }
+        $this->load->view('stdadd');
     }
 
     public function subadd()
@@ -116,8 +142,9 @@ class Register extends CI_Controller
         $arrData['register_detail'] = $this->register_model->get_id_wise_register_detail($id);
 
         if ($this->input->post('btnEdit')) {
-            $editData['first_name'] = $this->input->post('txtFname');
-            $editData['last_name'] = $this->input->post('txtLname');
+            $editData['studentid'] = $this->input->post('txtStudentid');
+            $editData['stdroll'] = $this->input->post('txtRoll');
+            $editData['sname'] = $this->input->post('txtSname');
             $editData['address'] = $this->input->post('txtAddress');
             $editData['email'] = $this->input->post('txtEmail');
             $editData['mobile'] = $this->input->post('txtMobile');
@@ -200,6 +227,14 @@ class Register extends CI_Controller
     }
 
     public function delete($id)
+    {
+        $delete = $this->register_model->delete($id);
+        if ($delete) {
+            redirect('register');
+        }
+    }
+
+    public function deletestd($id)
     {
         $delete = $this->register_model->delete($id);
         if ($delete) {
