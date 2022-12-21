@@ -239,7 +239,7 @@ class Register_model extends CI_Model
         $this->db->select('*');
         $this->db->from('students');
         $this->db->limit($limit, $start);
-        $this->db->order_by('stdid');
+        $this->db->order_by('roll');
         $query = $this->db->get();
         return $result = $query->result();
     }
@@ -251,7 +251,7 @@ class Register_model extends CI_Model
 
         $this->db->select("COUNT(*) as num_row");
         $this->db->from('students');
-        $this->db->order_by('stdid');
+        $this->db->order_by('roll');
         $query = $this->db->get();
         $result = $query->result();
         return $result[0]->num_row;
