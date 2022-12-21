@@ -1,5 +1,11 @@
 <h1>School Result Operating Application with MySQL using PHP-CodeIgniter</h1>
 
+![cimaino](https://user-images.githubusercontent.com/50805604/208749402-65be74a2-29cd-4d83-9f6b-5d10bbd182ea.png)
+
+![excon](https://user-images.githubusercontent.com/50805604/208749399-5ddd7a51-c5cc-425a-9fb9-94bedd81f44a.png)
+
+![resadd](https://user-images.githubusercontent.com/50805604/208749406-c2436951-adb6-4e56-af18-25cb2b4d570c.png)
+
 ![ci4 prepirt](https://user-images.githubusercontent.com/50805604/207829628-70d0965c-ec35-4ad7-a504-71722840ad0a.png)
 
 ###################
