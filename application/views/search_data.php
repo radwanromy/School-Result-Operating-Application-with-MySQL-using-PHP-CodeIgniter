@@ -30,68 +30,68 @@
         <hr>
         <div class="row">
             <!-- <div class="col-lg-12"> -->
-                <div class="table-responsive table-bordered">
-                    <table class="table">
+            <div class="table-responsive table-bordered">
+                <table class="table">
 
-                        <tr>
-                            <th>Student ID</th>
-                            <th>Roll</th>
-                            <th>Student Name</th>
-                            <th>Class</th>
-                            <th>Section</th>
-                            <th>stdsub</th>
-                            <th>Total Marks</th>
-                            <td>Grade
-                            <td>
-                        </tr>
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Roll</th>
+                        <th>Student Name</th>
+                        <th>Class</th>
+                        <th>Section</th>
+                        <th>stdsub</th>
+                        <th>Total Marks</th>
+                        <td>Grade
+                        <td>
+                    </tr>
 
-                        <?php if (count($records)) : ?>
+                    <?php if (count($records)) : ?>
 
-                            <?php foreach ($records as $row) : ?>
+                        <?php foreach ($records as $row) : ?>
 
-                                <tr>
-                                    <td><?php echo $row->stdid; ?></td>
-                                    <td><?php echo $row->roll; ?></td>
-                                    <td><?php echo $row->stdname; ?></td>
-                                    <td><?php echo $row->stdclass; ?></td>
-                                    <td><?php echo $row->stdsection; ?></td>
-                                    <td><?php echo $row->stdsub; ?></td>
-                                    <td><?php
-                                        echo $row->subjective + $row->objective + $row->practical; ?></td>
-                                    <td><?php
-                                        if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 80) {
-                                            echo "A";
-                                        } else if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
-                                            echo "B";
-                                        } else if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
-                                            echo "B";
-                                        } else if (($row->subjective + $row->objective + $row->practical) >= 80) {
-                                            echo "A";
-                                        } else if (($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
-                                            echo "B";
-                                        } else if (($row->subjective + $row->objective + $row->practical) >= 60 && ($row->subjective + $row->objective + $row->practical) <= 69) {
-                                            echo "C";
-                                        } else if (($row->subjective + $row->objective + $row->practical) >= 50 && ($row->subjective + $row->objective + $row->practical) <= 59) {
-                                            echo "D";
-                                        } else {
-                                            echo "F";
-                                        }
-                                        ?></td>
-                                    <td><a href="#"><button type='submit' class='btn btn-primary'>Print Result Card</button></a></td>
-                                    <!-- <td><a href="#"><button type='submit' class='btn btn-danger'>Delete</button></a></td> -->
+                            <tr>
+                                <td><?php echo $row->stdid; ?></td>
+                                <td><?php echo $row->roll; ?></td>
+                                <td><?php echo $row->stdname; ?></td>
+                                <td><?php echo $row->stdclass; ?></td>
+                                <td><?php echo $row->stdsection; ?></td>
+                                <td><?php echo $row->stdsub; ?></td>
+                                <td><?php
+                                    echo $row->subjective + $row->objective + $row->practical; ?></td>
+                                <td><?php
+                                    if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 80) {
+                                        echo "A";
+                                    } else if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
+                                        echo "B";
+                                    } else if ($row->stdsub == 'Bangla 1' && ($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
+                                        echo "B";
+                                    } else if (($row->subjective + $row->objective + $row->practical) >= 80) {
+                                        echo "A";
+                                    } else if (($row->subjective + $row->objective + $row->practical) >= 70 && ($row->subjective + $row->objective + $row->practical) <= 79) {
+                                        echo "B";
+                                    } else if (($row->subjective + $row->objective + $row->practical) >= 60 && ($row->subjective + $row->objective + $row->practical) <= 69) {
+                                        echo "C";
+                                    } else if (($row->subjective + $row->objective + $row->practical) >= 50 && ($row->subjective + $row->objective + $row->practical) <= 59) {
+                                        echo "D";
+                                    } else {
+                                        echo "F";
+                                    }
+                                    ?></td>
+                                <td><a href="#"><button type='submit' class='btn btn-primary'>Print Result Card</button></a></td>
+                                <!-- <td><a href="#"><button type='submit' class='btn btn-danger'>Delete</button></a></td> -->
 
-                                <?php endforeach; ?>
+                            <?php endforeach; ?>
 
-                            <?php else : ?>
-                                <center>
-                                    <p style="margin: 20px;">No users registered</p>
-                                </center>
-                            <?php endif ?>
+                        <?php else : ?>
+                            <center>
+                                <p style="margin: 20px;">No users registered</p>
+                            </center>
+                        <?php endif ?>
 
-                    </table>
-                </div>
-                <br>
-                <?php echo $link ?>
+                </table>
+            </div>
+            <br>
+            <?php echo $link ?>
             <!-- </div> -->
         </div>
     </div>
