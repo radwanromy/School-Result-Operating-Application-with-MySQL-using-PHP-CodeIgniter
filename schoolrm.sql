@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 20, 2022 at 08:18 PM
+-- Generation Time: Dec 21, 2022 at 11:35 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.0.3
 
@@ -112,7 +112,7 @@ INSERT INTO `register` (`id`, `studentid`, `stdroll`, `address`, `email`, `mobil
 
 CREATE TABLE `students` (
   `stdsl` int(11) NOT NULL,
-  `stdid` int(11) NOT NULL,
+  `stdid` int(11) DEFAULT NULL,
   `roll` int(11) NOT NULL,
   `stdname` varchar(50) NOT NULL,
   `tmark` int(11) DEFAULT NULL,
@@ -133,7 +133,9 @@ CREATE TABLE `students` (
 
 INSERT INTO `students` (`stdsl`, `stdid`, `roll`, `stdname`, `tmark`, `stdclass`, `stdsection`, `stdgroup`, `stdyear`, `stdsub`, `stdexam`, `subjective`, `objective`, `practical`) VALUES
 (2, 22020001, 1241006, 'HALIMUZZAMAN ALIF', 80, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 1', 'Unit Test', 50, 30, 0),
-(3, 22020002, 1241005, 'ISHTIAQ ELAHI KHAN', 60, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 2', 'Half Yearly Exam', 40, 20, 0);
+(3, 22020002, 1241005, 'ISHTIAQ ELAHI KHAN', 60, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 2', 'Half Yearly Exam', 40, 20, 0),
+(5, 22020002, 1241005, 'ISHTIAQ ELAHI KHAN', 80, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Bangla 1', 'Half Yearly Exam', 50, 30, 0),
+(6, 22020002, 1241005, 'ISHTIAQ ELAHI KHAN', 90, 'XII', 'A-Science', 'Science', '2022(Jan)-2022(Dec)', 'Mathematics', 'Half Yearly Exam', 55, 35, 0);
 
 -- --------------------------------------------------------
 
@@ -191,8 +193,7 @@ ALTER TABLE `register`
 -- Indexes for table `students`
 --
 ALTER TABLE `students`
-  ADD PRIMARY KEY (`stdsl`),
-  ADD UNIQUE KEY `stdid` (`stdid`);
+  ADD PRIMARY KEY (`stdsl`);
 
 --
 -- Indexes for table `subjects`
@@ -226,7 +227,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `stdsl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `stdsl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `subjects`
