@@ -9,7 +9,9 @@ class Register extends CI_Controller
     {
         parent::__construct();
         $this->load->model('register_model');
+        // $this->load->model('search_model');
         $this->load->helper('url');
+        
     }
 
     public function index()
@@ -24,6 +26,35 @@ class Register extends CI_Controller
         $this->load->view('list', $arrData);
         // $this->load->view('exconadd', $arrData);
         // $this->load->view('exconadd',  $arrData);
+        $this->load->library('pagination');
+        $config['total_rows'] = $this->register_model->getUserCount();
+        $config['per_page'] = 5;
+        $config['uri_segment'] = 3;
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['attributes'] = array('class' => 'page_link');
+        $config['first_link'] = 'First';
+        $config['last_link'] = 'Last';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_close'] = '</li>';
+        $config['prev_link'] = '&laquo';
+        $config['prev_tag_open'] = '<li class="prev">';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_link'] = '&raquo';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="page-item active"><a href="#" class="page-link">';
+        $config['cur_tag_close'] = '<span class="sr-only">(current)</span></a></li>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $this->pagination->initialize($config);
+        $data['link'] = $this->pagination->create_links();
+        $data['message'] = '';
+        $data['records'] = $this->register_model->getUserPagintaion($config['per_page'], $page);
+        $this->load->view('search_data', $data);
     }
 
 
@@ -270,4 +301,37 @@ class Register extends CI_Controller
     //     $data['academy_info'] = $this->register_model->get_ayear_dropdownlist();
     //     $this->load->view('list', $data);
     // }
+
+    public function searchUser() {
+        
+        $key = $this->input->post('register');
+
+        if(isset($key) and !empty($key)){
+            $data['records'] = $this->register_model->searchRecord($key);
+            $data['link'] = '';
+            $data['message'] = 'Search Results';
+            $this->load->view('search_data' , $data);
+        }
+        else {
+            redirect('register') ;
+        }
+    }
+
+    public function searchRecord($key)
+    {
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->like('stdid',$key);
+        $this->db->or_like('stdname',$key);
+        $this->db->or_like('roll',$key);
+        $query = $this->db->get();
+
+        if($query->num_rows()>0){
+          return $query->result();
+        }
+    }
+
+       
+        
+    
 }

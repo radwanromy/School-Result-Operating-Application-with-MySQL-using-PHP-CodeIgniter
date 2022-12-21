@@ -223,6 +223,7 @@ class Register_model extends CI_Model
         }
     }
 
+
     // function get_ayear_dropdownlist()
     // {
     //     $results = $this->db->select('ayear');
@@ -231,4 +232,29 @@ class Register_model extends CI_Model
 
     //     return array_column($results, 'ayear');
     // }
+
+    public function getUserPagintaion($limit, $start)
+    {
+
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->limit($limit, $start);
+        $this->db->order_by('stdid');
+        $query = $this->db->get();
+        return $result = $query->result();
+    }
+
+    //getting users count
+
+    public function getUserCount()
+    {
+
+        $this->db->select("COUNT(*) as num_row");
+        $this->db->from('students');
+        $this->db->order_by('stdid');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result[0]->num_row;
+    }
+
 }

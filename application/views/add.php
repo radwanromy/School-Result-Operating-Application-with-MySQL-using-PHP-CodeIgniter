@@ -42,11 +42,11 @@
                         <label for="">Mobile</label>
                         <input type="text" class="form-control" name="txtMobile">
                     </div>
-                  
+
 
                     <div class="form-group">
-                    <a href="./../../" class="btn btn-primary btn-lg">Cancel</a>  &nbsp; &nbsp;
-                        <input type="submit" value="Add user now" name="btnadd" class="btn btn-primary btn-lg">
+                        <a href="./../../" class="btn btn-primary btn-lg">Cancel</a> &nbsp; &nbsp;
+                        <input type="submit" value="Add Student" name="btnadd" class="btn btn-primary btn-lg">
                     </div>
 
                 </form>
