@@ -11,7 +11,6 @@ class Register extends CI_Controller
         $this->load->model('register_model');
         // $this->load->model('search_model');
         $this->load->helper('url');
-        
     }
 
     public function index()
@@ -20,6 +19,7 @@ class Register extends CI_Controller
         $arrData['sub_detail'] = $this->register_model->get_all_sub_detail();
         $arrData['aca_detail'] = $this->register_model->get_all_academy_detail();
         $arrData['excon_detail'] = $this->register_model->get_all_excon_detail();
+        $arrData['result_detail'] = $this->register_model->get_all_result_detail();
         //  $arrData['register_details'] = $this->register_model->get_all_register_detail();
         //  $arrData['sub_details'] = $this->register_model->get_all_sub_detail();
         //  $arrData['aca_details'] = $this->register_model->get_all_academy_detail();
@@ -56,8 +56,6 @@ class Register extends CI_Controller
         $data['records'] = $this->register_model->getUserPagintaion($config['per_page'], $page);
         $this->load->view('search_data', $data);
     }
-
-
 
     public function exconadd()
     {
@@ -257,6 +255,35 @@ class Register extends CI_Controller
         $this->load->view('exconedit', $arrData);
     }
 
+    public function result($id)
+    {
+        $arrData['result_detail'] = $this->register_model->get_id_wise_result_detail($id);
+
+        if ($this->input->post('btnresult')) {
+            $editData['stdyear'] = $this->input->post('txtayear');
+            $editData['stdclass'] = $this->input->post('txtaclass');
+            $editData['stdsection'] = $this->input->post('txtasection');
+            $editData['stdexam'] = $this->input->post('txtaexam');
+            $editData['stdgroup'] = $this->input->post('txtagroup');
+            $editData['stdname'] = $this->input->post('txtSname');
+            $editData['subjective'] = $this->input->post('txtSubjective');
+            // $editData['subjective_pass'] = $this->input->post('txtSubjectivePass');
+            $editData['objective'] = $this->input->post('txtObjective');
+            // $editData['objective_pass'] = $this->input->post('txtObjectivePass');
+            $editData['practical'] = $this->input->post('txtPractical');
+            // $editData['practical_pass'] = $this->input->post('txtPracticalPass');
+            $editData['tmark'] = $this->input->post('txtexmark');
+            // $editData['atten'] = $this->input->post('txtatten');
+            // $editData['status'] = $this->input->post('txtstatus');
+
+            $update = $this->register_model->updateresult($editData, $id);
+            if ($update) {
+                redirect('register');
+            }
+        }
+        $this->load->view('result', $arrData);
+    }
+
     public function delete($id)
     {
         $delete = $this->register_model->delete($id);
@@ -302,18 +329,18 @@ class Register extends CI_Controller
     //     $this->load->view('list', $data);
     // }
 
-    public function searchUser() {
-        
+    public function searchUser()
+    {
+
         $key = $this->input->post('register');
 
-        if(isset($key) and !empty($key)){
+        if (isset($key) and !empty($key)) {
             $data['records'] = $this->register_model->searchRecord($key);
             $data['link'] = '';
             $data['message'] = 'Search Results';
-            $this->load->view('search_data' , $data);
-        }
-        else {
-            redirect('register') ;
+            $this->load->view('search_data', $data);
+        } else {
+            redirect('register');
         }
     }
 
@@ -321,17 +348,13 @@ class Register extends CI_Controller
     {
         $this->db->select('*');
         $this->db->from('students');
-        $this->db->like('stdid',$key);
-        $this->db->or_like('stdname',$key);
-        $this->db->or_like('roll',$key);
+        $this->db->like('stdid', $key);
+        $this->db->or_like('stdname', $key);
+        $this->db->or_like('roll', $key);
         $query = $this->db->get();
 
-        if($query->num_rows()>0){
-          return $query->result();
+        if ($query->num_rows() > 0) {
+            return $query->result();
         }
     }
-
-       
-        
-    
 }

@@ -8,6 +8,8 @@
 </head>
 
 <body style="padding: 10px;">
+
+
     <!-- <div style="border: 2px solid gray;">
         <a href="<?php echo site_url('search/search_data'); ?>">Add</a>
     </div> -->

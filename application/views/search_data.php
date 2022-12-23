@@ -39,10 +39,10 @@
                         <th>Student Name</th>
                         <th>Class</th>
                         <th>Section</th>
-                        <th>stdsub</th>
+                        <!-- <th>stdsub</th>  -->
                         <th>Total Marks</th>
-                        <td>Grade
-                        <td>
+                        <th>Grade Sheet</th>
+                        
                     </tr>
 
                     <?php if (count($records)) : ?>
@@ -55,7 +55,7 @@
                                 <td><?php echo $row->stdname; ?></td>
                                 <td><?php echo $row->stdclass; ?></td>
                                 <td><?php echo $row->stdsection; ?></td>
-                                <td><?php echo $row->stdsub; ?></td>
+                                <!-- <td><?php echo $row->stdsub; ?></td>
                                 <td><?php
                                     echo $row->subjective + $row->objective + $row->practical; ?></td>
                                 <td><?php
@@ -76,17 +76,34 @@
                                     } else {
                                         echo "F";
                                     }
-                                    ?></td>
-                                <td><a href="#"><button type='submit' class='btn btn-primary'>Print Result Card</button></a></td>
+                                    ?></td> -->
+                                     <td>
+
+ <label><?php
+                    count(['tmark']);
+                    $a = 0;
+                    
+                    for ($x = 0; $x < count($result_detail); $x++) {
+                        if($result_detail[$x]['stdid'] == $row->stdid){
+                            $a += $result_detail[$x]['tmark'];
+                        }
+                        
+                    }
+                    echo $a;
+                    ?> </label> &nbsp; &nbsp;
+
+</td>
+                                <!-- <td><a href="#"><button type='submit' class='btn btn-primary'>Print Result Card</button></a></td> -->
                                 <!-- <td><a href="#"><button type='submit' class='btn btn-danger'>Delete</button></a></td> -->
+                                <td><a href="<?php echo site_url('register/result/'); ?><?php echo $row->stdid; ?>">Print Result Card</a>
 
-                            <?php endforeach; ?>
+                                <?php endforeach; ?>
 
-                        <?php else : ?>
-                            <center>
-                                <p style="margin: 20px;">No users registered</p>
-                            </center>
-                        <?php endif ?>
+                            <?php else : ?>
+                                <center>
+                                    <p style="margin: 20px;">No users registered</p>
+                                </center>
+                            <?php endif ?>
 
                 </table>
             </div>

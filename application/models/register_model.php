@@ -46,6 +46,14 @@ class Register_model extends CI_Model
         return $objQuery->result_array();
     }
 
+    public function  get_all_result_detail()
+    {
+        $this->db->select('*');
+        $this->db->from('students');
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
     public function get_id_wise_register_detail($id)
     {
         $this->db->select('*');
@@ -78,6 +86,15 @@ class Register_model extends CI_Model
         $this->db->select('*');
         $this->db->from('excon');
         $this->db->where('exconid', $id);
+        $objQuery = $this->db->get();
+        return $objQuery->result_array();
+    }
+
+    public function get_id_wise_result_detail($id)
+    {
+        $this->db->select('*');
+        $this->db->from('students');
+        $this->db->where('stdid', $id);
         $objQuery = $this->db->get();
         return $objQuery->result_array();
     }
@@ -173,6 +190,17 @@ class Register_model extends CI_Model
         }
     }
 
+    public function updateresult($editData, $id)
+    {
+        $this->db->where('stdid', $id);
+
+        if ($this->db->update('students', $editData)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function delete($id)
     {
 
@@ -239,6 +267,7 @@ class Register_model extends CI_Model
         $this->db->select('*');
         $this->db->from('students');
         $this->db->limit($limit, $start);
+        $this->db->GROUP_BY ('roll'); 
         $this->db->order_by('roll');
         $query = $this->db->get();
         return $result = $query->result();
@@ -256,5 +285,39 @@ class Register_model extends CI_Model
         $result = $query->result();
         return $result[0]->num_row;
     }
+
+
+    public function getData($rowno,$rowperpage,$search="") {
+ 
+        $this->db->select('*');
+        $this->db->from('students');
+    
+        if($search != ''){
+          $this->db->like('stdid', $search);
+          $this->db->or_like('roll', $search);
+        }
+    
+        $this->db->limit($rowperpage, $rowno); 
+        $query = $this->db->get();
+     
+        return $query->result_array();
+      }
+    
+      // Select total records
+      public function getrecordCount($search = '') {
+    
+        $this->db->select('count(*) as allcount');
+        $this->db->from('students');
+     
+        if($search != ''){
+          $this->db->like('stdid', $search);
+          $this->db->or_like('roll', $search);
+        }
+    
+        $query = $this->db->get();
+        $result = $query->result_array();
+     
+        return $result[0]['allcount'];
+      }
 
 }
