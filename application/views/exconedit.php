@@ -3,9 +3,14 @@
 <head>
     <title>School Result Operating Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <style>
+        tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+        </style>
 </head>
 
-<body>
+<body style="background-color: #E0FFFF;">
     <div class="container">
         <div class="row">
             <div class="col-md-3"></div>

@@ -27,7 +27,8 @@ class Register extends CI_Controller
         // $this->load->view('exconadd', $arrData);
         // $this->load->view('exconadd',  $arrData);
         $this->load->library('pagination');
-        $config['total_rows'] = $this->register_model->getUserCount();
+
+        $config['total_rows'] =  $this->register_model->getUserCountp();
         $config['per_page'] = 5;
         $config['uri_segment'] = 3;
         $config['full_tag_open'] = '<ul class="pagination">';
@@ -55,6 +56,7 @@ class Register extends CI_Controller
         $data['message'] = '';
         $data['records'] = $this->register_model->getUserPagintaion($config['per_page'], $page);
         $this->load->view('search_data', $data);
+       
     }
 
     public function exconadd()
@@ -125,6 +127,8 @@ class Register extends CI_Controller
             }
         }
         $this->load->view('stdadd');
+        // $result_detail = $this->register_model->getUserCount();
+        // $this->load->view('stdadd', array('result_detail' => $result_detail));
     }
 
     public function subadd()
@@ -282,6 +286,12 @@ class Register extends CI_Controller
             }
         }
         $this->load->view('result', $arrData);
+    }
+
+    public function resultcout()
+    {
+        $arrData['result_detail'] = $this->register_model->total_result_detail();
+        $this->load->view('resultcout', $arrData);
     }
 
     public function delete($id)

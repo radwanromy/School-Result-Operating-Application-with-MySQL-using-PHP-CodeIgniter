@@ -3,16 +3,17 @@
 <head>
     <title>School Result Operating Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
 </head>
 
-<body>
+<body style="background-color: #E0FFFF;">
     <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <!-- <div class="col-md-6"> -->
+        <div class="row" >
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
             <form method="post" name="frmStdAdd" action="">
                 <h3>Add Students Result</h3>
-                <table>
+                <table >
                     <tr>
                         <td rowspan="4"></td>
                     </tr>
@@ -52,11 +53,11 @@
                             <div class="form-group">
                                 <label for="">Exam Type</label>
                                 <select class="form-control" name="txtstdexam">
-                                <option value="Half Yearly Exam">Half Yearly Exam</option>
+                                    <option value="Half Yearly Exam">Half Yearly Exam</option>
                                     <option value="Final Yearly Exam">Final Yearly Exam</option>
                                     <option value="Unit Test">Unit Test</option>
                                     <option value="Monthly Exam">Monthly Exam</option>
-                                   
+
                                 </select>
                             </div>
 
@@ -149,11 +150,13 @@
                             </div>
                         </td>
                     </tr>
-                    <tr >
+                    <tr>
+
                         <td rowspan="4" colspan="6">
                             <div class="form-group">
                                 <label for="">Student ID</label>
                                 <input type="text" class="form-control" name="txtstdid">
+                           
                             </div>
 
                             <div class="form-group">
@@ -195,12 +198,12 @@
                         </td>
 
                     </tr>
-
                 </table>
 
             </form>
             <div class="col-md-3"></div>
             <!-- </div> -->
+        </div>
         </div>
     </div>
 </body>

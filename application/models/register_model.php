@@ -99,6 +99,16 @@ class Register_model extends CI_Model
         return $objQuery->result_array();
     }
 
+    public function total_result_detail()
+    {
+        $this->db->select("COUNT(*) as num_row");
+        $this->db->from('students');
+        $this->db->order_by('roll');
+        $query = $this->db->get();
+        $result = $query->result();
+        return $result[0]->num_row;
+    }
+
     public function insertexcon($exconData)
     {
         if ($this->db->insert('excon', $exconData)) {
@@ -251,16 +261,6 @@ class Register_model extends CI_Model
         }
     }
 
-
-    // function get_ayear_dropdownlist()
-    // {
-    //     $results = $this->db->select('ayear');
-    //     $results = $this->db->from('academy_info');
-    //     $results = $this->db->result_array();
-
-    //     return array_column($results, 'ayear');
-    // }
-
     public function getUserPagintaion($limit, $start)
     {
 
@@ -273,8 +273,6 @@ class Register_model extends CI_Model
         return $result = $query->result();
     }
 
-    //getting users count
-
     public function getUserCount()
     {
 
@@ -283,6 +281,7 @@ class Register_model extends CI_Model
         $this->db->order_by('roll');
         $query = $this->db->get();
         $result = $query->result();
+        
         return $result[0]->num_row;
     }
 
@@ -303,7 +302,6 @@ class Register_model extends CI_Model
         return $query->result_array();
       }
     
-      // Select total records
       public function getrecordCount($search = '') {
     
         $this->db->select('count(*) as allcount');
@@ -319,5 +317,23 @@ class Register_model extends CI_Model
      
         return $result[0]['allcount'];
       }
+
+      public function getUserCountp()
+      {
+  
+          $this->db->select("COUNT(distinct stdname) as num_row");
+          $this->db->from('students');
+          $this->db->order_by('roll');
+          $query = $this->db->get();
+          $result = $query->result();
+
+        //   echo $result[0]->num_row;
+
+          
+          return $result[0]->num_row;
+      }
+
+   
+      
 
 }
